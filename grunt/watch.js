@@ -9,5 +9,9 @@ module.exports = {
   html: {
     files: 'src/index.html',
     tasks: ['htmlmin']
+  },
+  js: {
+    files: 'src/js/**/*.js',
+    tasks: ['jshint', 'copy']
   }
 };

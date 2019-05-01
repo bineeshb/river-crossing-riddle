@@ -4,7 +4,7 @@ module.exports = {
   },
   dist: {
     files: {
-      'dist/scripts.min.js': 'src/js/magic.js'
+      'dist/scripts.min.js': 'src/js/scripts.js'
     }
   }
 };
