@@ -1,0 +1,127 @@
+// ==========================================================================
+// Arrow - Left, Right
+// ==========================================================================
+$arrowHeadSize: 7px;
+$arrowTailWidth: 7px;
+$arrowTailThickness: 4px;
+$arrowColor: #fff;
+
+@mixin arrowHead($side) {
+  width: 0;
+  height: 0;
+  border: $arrowHeadSize solid $arrowColor;
+  border-top-color: transparent;
+  border-bottom-color: transparent;
+  border-#{$side}: 0;
+}
+
+@mixin arrowTail {
+  width: $arrowTailWidth;
+  height: $arrowTailThickness;
+  background-color: $arrowColor;
+}
+
+.i-arrow-left,
+.i-arrow-right {
+  position: relative;
+  display: inline-block;
+  width: $arrowHeadSize + $arrowTailWidth;
+  height: $arrowHeadSize * 2;
+
+  &::after,
+  &::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+  }
+
+  &::before {
+    transform: translate(-$arrowHeadSize, -50%);
+  }
+
+  &::after {
+    transform: translateY(-50%);
+  }
+}
+
+.i-arrow-left::after,
+.i-arrow-right::before {
+  @include arrowTail;
+}
+
+.i-arrow-left::before {
+  @include arrowHead('left');
+}
+
+.i-arrow-right::after {
+  @include arrowHead('right');
+}
+
+// ==========================================================================
+// Close
+// ==========================================================================
+$closeSize: 14px;
+$closeThickness: 4px;
+$closeColor: #fff;
+
+.i-close {
+  position: relative;
+  display: inline-block;
+  width: $closeSize;
+  height: $closeSize;
+
+  &::after,
+  &::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+    background-color: $closeColor;
+  }
+
+  &::before {
+    width: $closeThickness;
+    height: $closeSize;
+  }
+
+  &::after {
+    width: $closeSize;
+    height: $closeThickness;
+  }
+}
+
+// ==========================================================================
+// Plus
+// ==========================================================================
+$plusSize: 14px;
+$plusThickness: 4px;
+$plusColor: #fff;
+
+.i-plus {
+  position: relative;
+  display: inline-block;
+  width: $plusSize;
+  height: $plusSize;
+
+  &::after,
+  &::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: $plusColor;
+  }
+
+  &::before {
+    width: $plusThickness;
+    height: $plusSize;
+  }
+
+  &::after {
+    width: $plusSize;
+    height: $plusThickness;
+  }
+}

@@ -1,0 +1,62 @@
+$listItemSpacingBetween: 3px;
+$listItemMaxWidth: 120px;
+$animalItemPaddingX: 5px;
+$animalItemPaddingY: 25px;
+$animalItemCornerRadius: 20px;
+$animalItemBgColor: #fff;
+$animalItemHoverOverlayColor: rgba(0, 0, 0, 0.5);
+
+.animals-wrapper {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+
+  li {
+    list-style: none;
+    margin: $listItemSpacingBetween auto;
+    text-align: center;
+    max-width: $listItemMaxWidth;
+    overflow: hidden;
+
+    &.animal {
+      position: relative;
+      padding: $animalItemPaddingX $animalItemPaddingY;
+      background-color: $animalItemBgColor;
+      border-radius: $animalItemCornerRadius;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    .add-remove-icon {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: none;
+      background-color: $animalItemHoverOverlayColor;
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      z-index: 1;
+      line-height: 30px;
+    }
+
+    &:hover .add-remove-icon {
+      display: block;
+    }
+  }
+}
+
+.raft .animal .add-remove-icon .i-plus {
+  display: none;
+}
+
+.safe-zone, .fire-zone {
+  .animal .add-remove-icon .i-close {
+    display: none
+  }
+}

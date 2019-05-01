@@ -1,0 +1,135 @@
+$raftBgColor: #795548;
+$raftWidth: 250px;
+$raftHeight: 150px;
+$raftBtnSize: 30px;
+$raftBtnGetAcrossBgColor: blue;
+$raftBtnRemoveAllBgColor: #FF5722;
+$raftBtnColor: #fff;
+$raftMoveDuration: 5s;
+
+
+@keyframes moveToSafeZone {
+  0% {
+    left: calc(100% - #{$raftWidth} + 20px);
+  }
+  15% {
+    left: calc(100% - #{$raftWidth});
+  }
+  85% {
+    left: 0px;
+  }
+  100% {
+    left: -20px;
+  }
+}
+
+@keyframes moveToFireZone {
+  0% {
+    left: -20px;
+  }
+  15% {
+    left: 0;
+  }
+  85% {
+    left: calc(100% - #{$raftWidth});
+  }
+  100% {
+    left: calc(100% - #{$raftWidth} + 20px);
+  }
+}
+
+.raft {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: $raftWidth;
+  height: $raftHeight;
+  background-color: $raftBgColor;
+  z-index: 1;
+}
+
+.raft-content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+
+  .btn {
+    width: $raftBtnSize;
+    height: $raftBtnSize;
+    border: 0 none;
+    border-radius: 50%;
+    font-size: 0;
+    color: $raftBtnColor;
+  }
+
+  .btn-to-safe-zone,
+  .btn-to-fire-zone {
+    position: absolute;
+    top: 50%;
+    background-color: $raftBtnGetAcrossBgColor;
+  }
+
+  .btn-to-safe-zone {
+    left: 0;
+    transform: translate(-50%, -50%);
+  }
+
+  .btn-to-fire-zone {
+    right: 0;
+    transform: translate(50%, -50%);
+  }
+
+  .btn-remove-all {
+    margin: 15px auto 0;
+    background-color: $raftBtnRemoveAllBgColor;
+  }
+
+  .action-container {
+    display: none;
+  }
+
+  .animal + .action-container {
+    display: block;
+  }
+}
+
+@keyframes showBtn {
+  to {
+    visibility: visible;
+  }
+}
+
+@mixin showBtnInZone {
+  visibility: hidden;
+  animation-name: showBtn;
+  animation-delay: $raftMoveDuration;
+  animation-fill-mode: forwards;
+}
+
+.raft {
+  &.in-safe-zone {
+    animation: moveToSafeZone $raftMoveDuration ease-in-out;
+    left: -20px;
+
+    .btn-to-safe-zone {
+      visibility: hidden;
+    }
+
+    .btn-to-fire-zone, .btn-remove-all {
+      @include showBtnInZone;
+    }
+  }
+
+  &.in-fire-zone {
+    animation: moveToFireZone 5s ease-in-out;
+    left: calc(100% - #{$raftWidth} + 20px);
+
+    .btn-to-fire-zone {
+      visibility: hidden;
+    }
+
+    .btn-to-safe-zone, .btn-remove-all {
+      @include showBtnInZone;
+    }
+  }
+}

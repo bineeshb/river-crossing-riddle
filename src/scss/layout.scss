@@ -1,0 +1,27 @@
+$safeZoneBgColor: #8BC34A;
+$riverBgColor: #03A9F4;
+$fireZoneBgColor: #FF5722;
+
+
+.safe-zone,
+.river,
+.fire-zone {
+  position: relative;
+  min-height: 100%;
+  float: left;
+}
+
+.safe-zone {
+  width: 25%;
+  background-color: $safeZoneBgColor;
+}
+
+.river {
+  width: 50%;
+  background-color: $riverBgColor;
+}
+
+.fire-zone {
+  width: 25%;
+  background-color: $fireZoneBgColor;
+}
