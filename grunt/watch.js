@@ -12,6 +12,6 @@ module.exports = {
   },
   js: {
     files: 'src/js/**/*.js',
-    tasks: ['jshint', 'copy']
+    tasks: ['jshint', 'concat']
   }
 };

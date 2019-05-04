@@ -19,9 +19,9 @@ module.exports = function(grunt) {
   // Register Tasks
   grunt.registerTask('default', ['serve:dev']);
 
-  grunt.registerTask('build', ['sass', 'cssmin', 'htmlmin', 'jshint']);
+  grunt.registerTask('build', ['sass', 'cssmin', 'htmlmin', 'jshint', 'concat']);
 
-  grunt.registerTask('build:dev', ['build', 'copy']);
+  grunt.registerTask('build:dev', ['build']);
 
   grunt.registerTask('serve:dev', ['build:dev', 'connect', 'watch']);
 
