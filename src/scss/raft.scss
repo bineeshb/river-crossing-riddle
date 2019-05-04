@@ -5,12 +5,13 @@ $raftBtnSize: 30px;
 $raftBtnGetAcrossBgColor: blue;
 $raftBtnRemoveAllBgColor: #FF5722;
 $raftBtnColor: #fff;
-$raftMoveDuration: 5s;
+$raftCrossingDuration: 5s;
+$raftPositionInZone: 20px;
 
 
 @keyframes moveToSafeZone {
   0% {
-    left: calc(100% - #{$raftWidth} + 20px);
+    left: calc(100% - #{$raftWidth - $raftPositionInZone});
   }
   15% {
     left: calc(100% - #{$raftWidth});
@@ -18,23 +19,17 @@ $raftMoveDuration: 5s;
   85% {
     left: 0px;
   }
-  100% {
-    left: -20px;
-  }
 }
 
 @keyframes moveToFireZone {
   0% {
-    left: -20px;
+    left: -$raftPositionInZone;
   }
   15% {
     left: 0;
   }
   85% {
     left: calc(100% - #{$raftWidth});
-  }
-  100% {
-    left: calc(100% - #{$raftWidth} + 20px);
   }
 }
 
@@ -46,6 +41,14 @@ $raftMoveDuration: 5s;
   height: $raftHeight;
   background-color: $raftBgColor;
   z-index: 1;
+
+  &.in-safe-zone {
+    left: -20px;
+  }
+
+  &.in-fire-zone {
+    left: calc(100% - #{$raftWidth - $raftPositionInZone});
+  }
 }
 
 .raft-content {
@@ -54,6 +57,7 @@ $raftMoveDuration: 5s;
   height: 100%;
 
   .btn {
+    display: none;
     width: $raftBtnSize;
     height: $raftBtnSize;
     border: 0 none;
@@ -83,53 +87,22 @@ $raftMoveDuration: 5s;
     margin: 15px auto 0;
     background-color: $raftBtnRemoveAllBgColor;
   }
-
-  .action-container {
-    display: none;
-  }
-
-  .animal + .action-container {
-    display: block;
-  }
 }
 
-@keyframes showBtn {
-  to {
-    visibility: visible;
-  }
-}
-
-@mixin showBtnInZone {
-  visibility: hidden;
-  animation-name: showBtn;
-  animation-delay: $raftMoveDuration;
-  animation-fill-mode: forwards;
-}
-
-.raft {
+.raft.crossing {
   &.in-safe-zone {
-    animation: moveToSafeZone $raftMoveDuration ease-in-out;
-    left: -20px;
-
-    .btn-to-safe-zone {
-      visibility: hidden;
-    }
-
-    .btn-to-fire-zone, .btn-remove-all {
-      @include showBtnInZone;
-    }
+    animation: moveToSafeZone $raftCrossingDuration ease-in-out;
   }
 
   &.in-fire-zone {
-    animation: moveToFireZone 5s ease-in-out;
-    left: calc(100% - #{$raftWidth} + 20px);
+    animation: moveToFireZone $raftCrossingDuration ease-in-out;
+  }
+}
 
-    .btn-to-fire-zone {
-      visibility: hidden;
-    }
-
-    .btn-to-safe-zone, .btn-remove-all {
-      @include showBtnInZone;
-    }
+.raft:not(.crossing) {
+  .animal + .action-container .btn-remove-all,
+  &.in-safe-zone .animal + .action-container .btn-to-fire-zone,
+  &.in-fire-zone .animal + .action-container .btn-to-safe-zone {
+    display: block;
   }
 }
