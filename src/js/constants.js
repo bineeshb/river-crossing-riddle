@@ -6,6 +6,7 @@ var elSafeZoneAnimalWrapper,
 var elClass = {
   animal: 'animal',
   animalsWrapper: 'animals-wrapper',
+  animalBtnAddRemove: 'btn-add-remove',
   raft: 'raft',
   raftContent: 'raft-content',
   raftCrossing: 'crossing',
@@ -15,7 +16,8 @@ var elClass = {
   raftBtnToSafeZone: 'btn-to-safe-zone',
   raftBtnToFireZone: 'btn-to-fire-zone',
   safeZone: 'safe-zone',
-  fireZone: 'fire-zone'
+  fireZone: 'fire-zone',
+  zoneHasRaft: 'has-raft'
 };
 
 var elSel = {

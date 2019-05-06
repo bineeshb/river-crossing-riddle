@@ -1,10 +1,10 @@
 $raftBgColor: #795548;
-$raftWidth: 250px;
-$raftHeight: 150px;
+$raftWidth: 270px;
+$raftHeight: 190px;
 $raftBtnSize: 30px;
-$raftBtnGetAcrossBgColor: blue;
+$raftBtnGetAcrossBgColor: #673AB7;
 $raftBtnRemoveAllBgColor: #FF5722;
-$raftBtnColor: #fff;
+$raftBtnColor: #FFF;
 $raftCrossingDuration: 5s;
 $raftPositionInZone: 20px;
 
@@ -17,7 +17,7 @@ $raftPositionInZone: 20px;
     left: calc(100% - #{$raftWidth});
   }
   85% {
-    left: 0px;
+    left: 0;
   }
 }
 
@@ -57,6 +57,7 @@ $raftPositionInZone: 20px;
   height: 100%;
 
   .btn {
+    position: absolute;
     display: none;
     width: $raftBtnSize;
     height: $raftBtnSize;
@@ -68,7 +69,6 @@ $raftPositionInZone: 20px;
 
   .btn-to-safe-zone,
   .btn-to-fire-zone {
-    position: absolute;
     top: 50%;
     background-color: $raftBtnGetAcrossBgColor;
   }
@@ -84,8 +84,13 @@ $raftPositionInZone: 20px;
   }
 
   .btn-remove-all {
-    margin: 15px auto 0;
+    left: 50%;
+    transform: translateX(-50%);
     background-color: $raftBtnRemoveAllBgColor;
+  }
+
+  .animal {
+    display: inline-block;
   }
 }
 
@@ -100,7 +105,7 @@ $raftPositionInZone: 20px;
 }
 
 .raft:not(.crossing) {
-  .animal + .action-container .btn-remove-all,
+  .animal:nth-child(2) + .action-container .btn-remove-all,
   &.in-safe-zone .animal + .action-container .btn-to-fire-zone,
   &.in-fire-zone .animal + .action-container .btn-to-safe-zone {
     display: block;

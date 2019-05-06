@@ -1,62 +1,78 @@
-$listItemSpacingBetween: 3px;
-$listItemMaxWidth: 120px;
-$animalItemPaddingX: 5px;
-$animalItemPaddingY: 25px;
+$animalItemWidth: 90px;
+$animalItemHeight: 90px;
+$animalItemSpacingX: 3px;
+$animalItemSpacingBottom: 17px;
+$animalItemPadding: 5px;
 $animalItemCornerRadius: 20px;
-$animalItemBgColor: #fff;
+$animalItemBgColor: #FFF;
 $animalItemHoverOverlayColor: rgba(0, 0, 0, 0.5);
+$addRemoveIconSize: 30px;
 
 .animals-wrapper {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
+  box-sizing: border-box;
   width: 100%;
+  text-align: center;
 
   li {
+    box-sizing: border-box;
     list-style: none;
-    margin: $listItemSpacingBetween auto;
     text-align: center;
-    max-width: $listItemMaxWidth;
-    overflow: hidden;
 
     &.animal {
+      display: inline-block;
       position: relative;
-      padding: $animalItemPaddingX $animalItemPaddingY;
+      width: $animalItemWidth;
+      height: $animalItemHeight;
+      margin: 0 $animalItemSpacingX $animalItemSpacingBottom;
+      padding: $animalItemPadding;
+      vertical-align: middle;
       background-color: $animalItemBgColor;
-      border-radius: $animalItemCornerRadius;
     }
 
-    a {
-      text-decoration: none;
-    }
-
-    .add-remove-icon {
+    .btn-add-remove {
       content: '';
       position: absolute;
-      top: 0;
-      left: 0;
-      display: none;
+      left: 50%;
+      bottom: 0;
+      transform: translate(-50%, 50%);
       background-color: $animalItemHoverOverlayColor;
-      width: 100%;
-      height: 100%;
-      margin: 0;
-      padding: 0;
+      width: $addRemoveIconSize;
+      height: $addRemoveIconSize;
       z-index: 1;
-      line-height: 30px;
-    }
-
-    &:hover .add-remove-icon {
-      display: block;
+      border: 0 none;
+      border-radius: $addRemoveIconSize;
+      line-height: $addRemoveIconSize;
     }
   }
 }
 
-.raft .animal .add-remove-icon .i-plus {
-  display: none;
+.raft {
+  &.crossing .animal .btn-add-remove,
+  .animal .btn-add-remove .i-plus {
+    display: none;
+  }
 }
 
 .safe-zone, .fire-zone {
-  .animal .add-remove-icon .i-close {
-    display: none
+  .animals-wrapper {
+    padding: 0 35px;
+
+    .animal {
+      float: left;
+    }
+  }
+
+  .animal .btn-add-remove {
+    &,
+    .i-close {
+      display: none;
+    }
+  }
+
+  &.has-raft .animal .btn-add-remove {
+    display: block;
   }
 }
