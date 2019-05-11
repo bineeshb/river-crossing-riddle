@@ -1,0 +1,83 @@
+$gameOverOverlayColor: rgba(0, 0, 0, 0.4);
+$gameOverMsgWrapperWidth: 400px;
+$gameOverMsgWrapperHeight: 300px;
+$gameOverMsgWrapperColor: #fff;
+$gameOverMsgWrapperBgColor: #212121;
+$successMsgBgColor: #4CAF50;
+$failureMsgBgColor: #F44336;
+$restartBtnColor: #fff;
+$restartBtnBgColor: #00695C;
+
+
+.game-over-message {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: none;
+  width: 100%;
+  height: 100%;
+  background-color: $gameOverOverlayColor;
+  z-index: 2;
+
+  .message-wrapper {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: $gameOverMsgWrapperWidth;
+    height: $gameOverMsgWrapperHeight;
+    background-color: $gameOverMsgWrapperBgColor;
+    border-radius: 5px;
+
+    h2,
+    .success-message,
+    .failure-message {
+      color: $gameOverMsgWrapperColor
+    }
+
+    .success-message,
+    .failure-message {
+      display: none;
+      width: 100%;
+      margin: 20px 0;
+      padding: 20px 0;
+      text-align: center;
+    }
+
+    .success-message {
+      background-color: $successMsgBgColor;
+    }
+
+    .failure-message {
+      background-color: $failureMsgBgColor;
+    }
+
+    .btn-restart {
+      width: 100px;
+      height: 40px;
+      border: 0 none;
+      border-radius: 5px;
+      background-color: $restartBtnBgColor;
+      color: $restartBtnColor;
+    }
+  }
+}
+
+.game-over {
+  .btn-add-remove,
+  .btn-remove-all,
+  .btn-to-safe-zone,
+  .btn-to-fire-zone {
+    display: none !important;
+  }
+
+  .game-over-message,
+  &.failed .failure-message,
+  &.success .success-message {
+    display: block;
+  }
+}

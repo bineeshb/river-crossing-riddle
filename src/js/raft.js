@@ -6,11 +6,11 @@ var raft = {
   elBtnToFireZone: null,
 
   init: function () {
-    this.el = document.querySelector('.' + elClass.raft);
+    this.el = document.querySelector(elSel.raft);
     this.elAnimalsWrapper = document.querySelector(elSel.raftAnimalWrapper);
-    this.elBtnRemoveAll = document.querySelector('.' + elClass.raftBtnRemoveAll);
-    this.elBtnToSafeZone = document.querySelector('.' + elClass.raftBtnToSafeZone);
-    this.elBtnToFireZone = document.querySelector('.' + elClass.raftBtnToFireZone);
+    this.elBtnRemoveAll = document.querySelector(elSel.raftBtnRemoveAll);
+    this.elBtnToSafeZone = document.querySelector(elSel.raftBtnToSafeZone);
+    this.elBtnToFireZone = document.querySelector(elSel.raftBtnToFireZone);
 
     this.setEventListeners();
     this.setInZone('fire');
@@ -31,7 +31,7 @@ var raft = {
   },
 
   hasCapacity: function () {
-    return this.elAnimalsWrapper.querySelectorAll('.' + elClass.animal).length < raftMaxCapacity;
+    return this.elAnimalsWrapper.querySelectorAll(elSel.animal).length < raftMaxCapacity;
   },
 
   isInSafeZone: function () {
@@ -55,19 +55,36 @@ var raft = {
   crossToZone: function (toZone) {
     this.el.classList.add(elClass.raftCrossing);
     this.setInZone(toZone);
+    zone.removeHasRaft();
 
     setTimeout((function () {
       this.el.classList.remove(elClass.raftCrossing);
-      zone.setZoneHasRaft(toZone);
+      zone.setHasRaft(toZone);
+      checkGameStatus();
     }).bind(this), raftCrossingDuration);
   },
 
   moveAnimalsToZone: function () {
-    var elAnimalsInRaft = this.elAnimalsWrapper.querySelectorAll('.' + elClass.animal),
+    var elAnimalsInRaft = this.elAnimalsWrapper.querySelectorAll(elSel.animal),
         moveAnimalToZone = this.isInSafeZone() ? 'safe' : 'fire';
   
     Array.from(elAnimalsInRaft).forEach(function (elAnimal) {
       zone.addAnimal(moveAnimalToZone, elAnimal);
+    });
+  },
+
+  getAnimals: function () {
+    return {
+      lion: this.elAnimalsWrapper.querySelectorAll(elSel.animalLion).length,
+      wildebeest: this.elAnimalsWrapper.querySelectorAll(elSel.animalWildebeest).length
+    };
+  },
+
+  setAnimalAsDead: function () {
+    var elAnimalWildebeest = this.elAnimalsWrapper.querySelectorAll(elSel.animalWildebeest);
+
+    Array.from(elAnimalWildebeest).forEach(function (elAnimal) {
+      elAnimal.classList.add(elClass.animalDead);
     });
   }
 };

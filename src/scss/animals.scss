@@ -1,12 +1,16 @@
-$animalItemWidth: 90px;
-$animalItemHeight: 90px;
-$animalItemSpacingX: 3px;
-$animalItemSpacingBottom: 17px;
-$animalItemPadding: 5px;
-$animalItemCornerRadius: 20px;
-$animalItemBgColor: #FFF;
-$animalItemHoverOverlayColor: rgba(0, 0, 0, 0.5);
-$addRemoveIconSize: 30px;
+$animalWidth: 90px;
+$animalHeight: 90px;
+$animalSpacingX: 3px;
+$animalSpacingBottom: 17px;
+$animalPadding: 5px;
+$animalCornerRadius: 20px;
+$animalBgColor: #FFF;
+$animalBtnAddBgColor: #303F9F;
+$animalBtnRemoveBgColor: #D32F2F;
+$animalBtnIconSize: 30px;
+$animalDeadBgColor: #9E9E9E;
+$lionBgColor: #DAA520;
+$wildebeestBgColor: #37474F;
 
 .animals-wrapper {
   position: absolute;
@@ -24,12 +28,25 @@ $addRemoveIconSize: 30px;
     &.animal {
       display: inline-block;
       position: relative;
-      width: $animalItemWidth;
-      height: $animalItemHeight;
-      margin: 0 $animalItemSpacingX $animalItemSpacingBottom;
-      padding: $animalItemPadding;
+      width: $animalWidth;
+      height: $animalHeight;
+      margin: 0 $animalSpacingX $animalSpacingBottom;
+      padding: $animalPadding;
+      line-height: $animalHeight;
       vertical-align: middle;
-      background-color: $animalItemBgColor;
+      color: $animalBgColor;
+    }
+
+    &.lion {
+      background-color: $lionBgColor;
+    }
+
+    &.wildebeest {
+      background-color: $wildebeestBgColor;
+    }
+
+    &.animal.dead {
+      background-color: $animalDeadBgColor;
     }
 
     .btn-add-remove {
@@ -38,13 +55,13 @@ $addRemoveIconSize: 30px;
       left: 50%;
       bottom: 0;
       transform: translate(-50%, 50%);
-      background-color: $animalItemHoverOverlayColor;
-      width: $addRemoveIconSize;
-      height: $addRemoveIconSize;
+      background-color: $animalBtnAddBgColor;
+      width: $animalBtnIconSize;
+      height: $animalBtnIconSize;
       z-index: 1;
       border: 0 none;
-      border-radius: $addRemoveIconSize;
-      line-height: $addRemoveIconSize;
+      border-radius: $animalBtnIconSize;
+      line-height: $animalBtnIconSize;
     }
   }
 }
@@ -53,6 +70,10 @@ $addRemoveIconSize: 30px;
   &.crossing .animal .btn-add-remove,
   .animal .btn-add-remove .i-plus {
     display: none;
+  }
+
+  .animal .btn-add-remove {
+    background-color: $animalBtnRemoveBgColor;
   }
 }
 

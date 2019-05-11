@@ -7,6 +7,9 @@ var elClass = {
   animal: 'animal',
   animalsWrapper: 'animals-wrapper',
   animalBtnAddRemove: 'btn-add-remove',
+  animalDead: 'dead',
+  lion: 'lion',
+  wildebeest: 'wildebeest',
   raft: 'raft',
   raftContent: 'raft-content',
   raftCrossing: 'crossing',
@@ -17,11 +20,26 @@ var elClass = {
   raftBtnToFireZone: 'btn-to-fire-zone',
   safeZone: 'safe-zone',
   fireZone: 'fire-zone',
-  zoneHasRaft: 'has-raft'
+  zoneHasRaft: 'has-raft',
+  gameover: 'game-over',
+  gameoverSuccess: 'success',
+  gameoverFailure: 'failed',
+  btnRestart: 'btn-restart'
 };
 
 var elSel = {
+  animal: '.' + elClass.animal,
+  animalLion: '.' + elClass.animal + '.' + elClass.lion,
+  animalWildebeest: '.' + elClass.animal + '.' + elClass.wildebeest,
+  animalBtnAddRemove: '.' + elClass.animalBtnAddRemove,
+  btnRestart: '.' + elClass.btnRestart,
+  raft: '.' + elClass.raft,
   raftAnimalWrapper: '.' + elClass.raftContent + ' .' + elClass.animalsWrapper,
+  raftBtnRemoveAll: '.' + elClass.raftBtnRemoveAll,
+  raftBtnToSafeZone: '.' + elClass.raftBtnToSafeZone,
+  raftBtnToFireZone: '.' + elClass.raftBtnToFireZone,
+  safeZone: '.' + elClass.safeZone,
+  fireZone: '.' + elClass.fireZone,
   safeZoneAnimalWrapper: '.' + elClass.safeZone + ' .' + elClass.animalsWrapper,
   fireZoneAnimalWrapper: '.' + elClass.fireZone + ' .' + elClass.animalsWrapper
 };
