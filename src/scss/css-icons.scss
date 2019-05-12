@@ -125,3 +125,28 @@ $plusColor: #fff;
     height: $plusThickness;
   }
 }
+
+// ==========================================================================
+// Minus
+// ==========================================================================
+$minusSize: 14px;
+$minusThickness: 4px;
+$minusColor: #fff;
+
+.i-minus {
+  position: relative;
+  display: inline-block;
+  width: $minusSize;
+  height: $minusSize;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: $plusColor;
+    width: $plusSize;
+    height: $plusThickness;
+  }
+}

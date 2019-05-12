@@ -3,11 +3,11 @@ $animalHeight: 90px;
 $animalSpacingX: 3px;
 $animalSpacingBottom: 17px;
 $animalPadding: 5px;
-$animalCornerRadius: 20px;
 $animalBgColor: #FFF;
 $animalBtnAddBgColor: #303F9F;
+$animalBtnAddHoverBgColor: #1A237E;
 $animalBtnRemoveBgColor: #D32F2F;
-$animalBtnIconSize: 30px;
+$animalBtnRemoveHoverBgColor: #B71C1C;
 $animalDeadBgColor: #9E9E9E;
 $lionBgColor: #DAA520;
 $wildebeestBgColor: #37474F;
@@ -56,12 +56,11 @@ $wildebeestBgColor: #37474F;
       bottom: 0;
       transform: translate(-50%, 50%);
       background-color: $animalBtnAddBgColor;
-      width: $animalBtnIconSize;
-      height: $animalBtnIconSize;
       z-index: 1;
-      border: 0 none;
-      border-radius: $animalBtnIconSize;
-      line-height: $animalBtnIconSize;
+
+      &:hover {
+        background-color: $animalBtnAddHoverBgColor;
+      }
     }
   }
 }
@@ -74,6 +73,14 @@ $wildebeestBgColor: #37474F;
 
   .animal .btn-add-remove {
     background-color: $animalBtnRemoveBgColor;
+
+    &::after {
+      content: attr(tooltip-remove);
+    }
+
+    &:hover {
+      background-color: $animalBtnRemoveHoverBgColor;
+    }
   }
 }
 
@@ -88,7 +95,7 @@ $wildebeestBgColor: #37474F;
 
   .animal .btn-add-remove {
     &,
-    .i-close {
+    .i-minus {
       display: none;
     }
   }

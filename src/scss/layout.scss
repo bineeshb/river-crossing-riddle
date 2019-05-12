@@ -1,0 +1,40 @@
+$headerHeight: 50px;
+$headerBgColor: #212121;
+$footerHeight: 50px;
+$footerBgColor: #212121;
+$restartBtnColor: #fff;
+$restartBtnBgColor: #00695C;
+
+.header {
+  height: $headerHeight;
+  line-height: $headerHeight;
+  background-color: $headerBgColor;
+  text-align: center;
+  color: #fff;
+
+  h1 {
+    display: inline-block;
+  }
+}
+
+.game-wrapper {
+  clear: both;
+  height: calc(100% - #{$headerHeight + $footerHeight});
+}
+
+.footer {
+  padding: 0 20px;
+  height: $footerHeight;
+  line-height: $footerHeight;
+  background-color: $footerBgColor;
+  color: #fff;
+}
+
+.btn-restart {
+  width: 100px;
+  height: 40px;
+  border: 0 none;
+  border-radius: 5px;
+  background-color: $restartBtnBgColor;
+  color: $restartBtnColor;
+}

@@ -1,0 +1,43 @@
+$tooltipPadding: 10px;
+$tooltipCornerRadius: 3px;
+$tooltipFontSize: 14px;
+$tooltipColor: #fff;
+$tooltipBgColor: #000;
+$iconBtnSize: 30px;
+
+[tooltip] {
+  z-index: 1;
+
+  &::after {
+    content: attr(tooltip);
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: inline-block;
+    transform: translate(-40%, -105%);
+    padding: $tooltipPadding;
+    font-size: $tooltipFontSize;
+    line-height: $tooltipFontSize;
+    border-radius: $tooltipCornerRadius;
+    background-color: $tooltipBgColor;
+    white-space: nowrap;
+    color: $tooltipColor;
+    z-index: 2;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+  }
+
+  &:hover::after {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+.icon-btn {
+  width: $iconBtnSize;
+  height: $iconBtnSize;
+  border: 0 none;
+  border-radius: 50%;
+  font-size: 0;
+}

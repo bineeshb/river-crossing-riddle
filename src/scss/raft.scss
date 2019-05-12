@@ -1,9 +1,10 @@
 $raftBgColor: #795548;
 $raftWidth: 270px;
 $raftHeight: 190px;
-$raftBtnSize: 30px;
 $raftBtnGetAcrossBgColor: #388E3C;
+$raftBtnGetAcrossHoverBgColor: #1B5E20;
 $raftBtnRemoveAllBgColor: #D32F2F;
+$raftBtnRemoveAllHoverBgColor: #B71C1C;
 $raftBtnColor: #FFF;
 $raftCrossingDuration: 5s;
 $raftPositionInZone: 20px;
@@ -56,14 +57,11 @@ $raftPositionInZone: 20px;
   width: 100%;
   height: 100%;
 
-  .btn {
+  .btn-to-safe-zone,
+  .btn-to-fire-zone,
+  .btn-remove-all {
     position: absolute;
     display: none;
-    width: $raftBtnSize;
-    height: $raftBtnSize;
-    border: 0 none;
-    border-radius: 50%;
-    font-size: 0;
     color: $raftBtnColor;
   }
 
@@ -71,6 +69,10 @@ $raftPositionInZone: 20px;
   .btn-to-fire-zone {
     top: 50%;
     background-color: $raftBtnGetAcrossBgColor;
+
+    &:hover {
+      background-color: $raftBtnGetAcrossHoverBgColor;
+    }
   }
 
   .btn-to-safe-zone {
@@ -87,6 +89,10 @@ $raftPositionInZone: 20px;
     left: 50%;
     transform: translateX(-50%);
     background-color: $raftBtnRemoveAllBgColor;
+
+    &:hover {
+      background-color: $raftBtnRemoveAllHoverBgColor;
+    }
   }
 
   .animal {
