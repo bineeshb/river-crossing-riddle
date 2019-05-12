@@ -28,7 +28,7 @@ function restartGame() {
   });
 
   document.querySelector('body').classList.remove(elClass.gameover, elClass.gameoverFailure, elClass.gameoverSuccess);
-  raft.setInZone('fire');
+  raft.reset();
   zone.setHasRaft('fire');
 }
 

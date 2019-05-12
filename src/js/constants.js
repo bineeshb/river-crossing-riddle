@@ -33,6 +33,7 @@ var elSel = {
   animalWildebeest: '.' + elClass.animal + '.' + elClass.wildebeest,
   animalBtnAddRemove: '.' + elClass.animalBtnAddRemove,
   btnRestart: '.' + elClass.btnRestart,
+  numOfCrossings: '#crossings',
   raft: '.' + elClass.raft,
   raftAnimalWrapper: '.' + elClass.raftContent + ' .' + elClass.animalsWrapper,
   raftBtnRemoveAll: '.' + elClass.raftBtnRemoveAll,

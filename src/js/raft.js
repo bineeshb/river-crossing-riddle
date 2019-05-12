@@ -4,6 +4,7 @@ var raft = {
   elBtnRemoveAll: null,
   elBtnToSafeZone: null,
   elBtnToFireZone: null,
+  numOfCrossings: 0,
 
   init: function () {
     this.el = document.querySelector(elSel.raft);
@@ -46,18 +47,27 @@ var raft = {
     this.elAnimalsWrapper.prepend(elAnimal);
   },
 
+  setNumOfCrossings: function (numOfCrossings) {
+    if (numOfCrossings !== undefined) {
+      this.numOfCrossings = numOfCrossings;
+    } else {
+      this.numOfCrossings++;
+    }
+    document.querySelector(elSel.numOfCrossings).innerText = this.numOfCrossings;
+  },
+
   setInZone: function (inZone) {
-    this.el.classList.remove(elClass.raftInFireZone);
-    this.el.classList.remove(elClass.raftInSafeZone);
+    this.el.classList.remove(elClass.raftCrossing, elClass.raftInFireZone, elClass.raftInSafeZone);
     this.el.classList.add((inZone === 'safe') ? elClass.raftInSafeZone : elClass.raftInFireZone);
   },
 
   crossToZone: function (toZone) {
-    this.el.classList.add(elClass.raftCrossing);
     this.setInZone(toZone);
+    this.el.classList.add(elClass.raftCrossing);
     zone.removeHasRaft();
 
     setTimeout((function () {
+      this.setNumOfCrossings();
       this.el.classList.remove(elClass.raftCrossing);
       zone.setHasRaft(toZone);
       checkGameStatus();
@@ -86,5 +96,10 @@ var raft = {
     Array.from(elAnimalWildebeest).forEach(function (elAnimal) {
       elAnimal.classList.add(elClass.animalDead);
     });
+  },
+
+  reset: function () {
+    this.setNumOfCrossings(0);
+    this.setInZone('fire');
   }
 };

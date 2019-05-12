@@ -8,61 +8,69 @@
   <link rel="stylesheet" href="styles.min.css">
 </head>
 <body>
-  <div class="safe-zone">
-    <ul class="animals-wrapper"></ul>
+  <div class="header">
+    <h1>River Crossing</h1>
   </div>
-  <div class="river">
-    <div class="raft">
-      <div class="raft-content">
-        <ul class="animals-wrapper">
-          <li class="action-container">
-            <button class="btn btn-to-safe-zone"><i class="i-arrow-left"></i></button>
-            <button class="btn btn-to-fire-zone"><i class="i-arrow-right"></i></button>
-            <button class="btn btn-remove-all"><i class="i-close"></i></button>
-          </li>
-        </ul>
+  <div class="game-wrapper">
+    <div class="safe-zone">
+      <ul class="animals-wrapper"></ul>
+    </div>
+    <div class="river">
+      <div class="raft">
+        <div class="raft-content">
+          <ul class="animals-wrapper">
+            <li class="action-container">
+              <button class="icon-btn btn-to-safe-zone" tooltip="Get to Safe zone"><i class="i-arrow-left"></i></button>
+              <button class="icon-btn btn-to-fire-zone" tooltip="Get to Fire zone"><i class="i-arrow-right"></i></button>
+              <button class="icon-btn btn-remove-all" tooltip="Remove all from Raft"><i class="i-minus"></i></button>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
+    <div class="fire-zone">
+      <ul class="animals-wrapper">
+        <li class="animal lion">
+          Lion
+          <button class="icon-btn btn-add-remove" tooltip="Add to Raft" tooltip-remove="Remove from Raft">
+            <i class="i-plus"></i><i class="i-minus"></i>
+          </button>
+        </li>
+        <li class="animal lion">
+          Lion
+          <button class="icon-btn btn-add-remove" tooltip="Add to Raft" tooltip-remove="Remove from Raft">
+            <i class="i-plus"></i><i class="i-minus"></i>
+          </button>
+        </li>
+        <li class="animal lion">
+          Lion
+          <button class="icon-btn btn-add-remove" tooltip="Add to Raft" tooltip-remove="Remove from Raft">
+            <i class="i-plus"></i><i class="i-minus"></i>
+          </button>
+        </li>
+        <li class="animal wildebeest">
+          Wildebeest
+          <button class="icon-btn btn-add-remove" tooltip="Add to Raft" tooltip-remove="Remove from Raft">
+            <i class="i-plus"></i><i class="i-minus"></i>
+          </button>
+        </li>
+        <li class="animal wildebeest">
+          Wildebeest
+          <button class="icon-btn btn-add-remove" tooltip="Add to Raft" tooltip-remove="Remove from Raft">
+            <i class="i-plus"></i><i class="i-minus"></i>
+          </button>
+        </li>
+        <li class="animal wildebeest">
+          Wildebeest
+          <button class="icon-btn btn-add-remove" tooltip="Add to Raft" tooltip-remove="Remove from Raft">
+            <i class="i-plus"></i><i class="i-minus"></i>
+          </button>
+        </li>
+      </ul>
+    </div>
   </div>
-  <div class="fire-zone">
-    <ul class="animals-wrapper">
-      <li class="animal lion">
-        Lion
-        <button class="btn-add-remove">
-          <i class="i-plus"></i><i class="i-close"></i>
-        </button>
-      </li>
-      <li class="animal lion">
-        Lion
-        <button class="btn-add-remove">
-          <i class="i-plus"></i><i class="i-close"></i>
-        </button>
-      </li>
-      <li class="animal lion">
-        Lion
-        <button class="btn-add-remove">
-          <i class="i-plus"></i><i class="i-close"></i>
-        </button>
-      </li>
-      <li class="animal wildebeest">
-        Wildebeest
-        <button class="btn-add-remove">
-          <i class="i-plus"></i><i class="i-close"></i>
-        </button>
-      </li>
-      <li class="animal wildebeest">
-        Wildebeest
-        <button class="btn-add-remove">
-          <i class="i-plus"></i><i class="i-close"></i>
-        </button>
-      </li>
-      <li class="animal wildebeest">
-        Wildebeest
-        <button class="btn-add-remove">
-          <i class="i-plus"></i><i class="i-close"></i>
-        </button>
-      </li>
-    </ul>
+  <div class="footer">
+    <h4>No. of crossings: <span id="crossings">0</span></h4>
   </div>
 
   <div class="game-over-message">
