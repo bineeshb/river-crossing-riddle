@@ -10,14 +10,18 @@ var zone = {
     this.elFireZoneAnimalWrapper = document.querySelector(elSel.fireZoneAnimalWrapper);
     this.elSafeZoneAnimalWrapper = document.querySelector(elSel.safeZoneAnimalWrapper);
 
-    this.setHasRaft();
+    this.setHasRaft('fire');
+  },
+
+  addAnimalToFireZone: function (elAnimal) {
+    this.elFireZoneAnimalWrapper.append(elAnimal);
   },
 
   addAnimal: function (toZone, elAnimal) {
     if (toZone === 'safe') {
       this.elSafeZoneAnimalWrapper.append(elAnimal);
     } else {
-      this.elFireZoneAnimalWrapper.append(elAnimal);
+      this.addAnimalToFireZone(elAnimal);
     }
 
     checkGameStatus();
@@ -57,6 +61,10 @@ var zone = {
   },
 
   isAllAnimalsSafe: function () {
-    return this.elSafeZoneAnimalWrapper.querySelectorAll(elSel.animal).length === 6;
+    return this.elSafeZoneAnimalWrapper.querySelectorAll(elSel.animal).length === numOfAnimals;
+  },
+
+  reset: function () {
+    this.setHasRaft('fire');
   }
 };

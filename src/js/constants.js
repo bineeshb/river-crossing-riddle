@@ -1,5 +1,8 @@
 var elSafeZoneAnimalWrapper,
     elFireZoneAnimalWrapper,
+    numOfLions = 3,
+    numOfWildebeest = 3,
+    numOfAnimals = numOfLions + numOfWildebeest,
     raftMaxCapacity = 2,
     raftCrossingDuration = 5000;
 
