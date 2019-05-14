@@ -2,9 +2,9 @@ module.exports = {
   options: {
     banner: '/*\n * <%= pkg.name.replace(/-/g, " ").toUpperCase() %>\n * <%= grunt.template.today("yyyy-mm-dd") %>\n*/\n'
   },
-  dist: {
+  docs: {
     files: {
-      'dist/scripts.min.js': 'dist/scripts.min.js'
+      'docs/scripts.min.js': 'docs/scripts.min.js'
     }
   }
 };

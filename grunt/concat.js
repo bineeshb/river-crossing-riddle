@@ -1,5 +1,5 @@
 module.exports = {
-  dist: {
+  docs: {
     src: [
       'src/js/constants.js',
       'src/js/raft.js',
@@ -7,6 +7,6 @@ module.exports = {
       'src/js/animal.js',
       'src/js/logic.js'
     ],
-    dest: 'dist/scripts.min.js'
+    dest: 'docs/scripts.min.js'
   }
 };

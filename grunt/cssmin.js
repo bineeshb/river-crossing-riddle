@@ -1,7 +1,7 @@
 module.exports = {
-  dist: {
+  docs: {
     files: {
-      'dist/styles.min.css': 'dist/styles.min.css'
+      'docs/styles.min.css': 'docs/styles.min.css'
     }
   }
 };

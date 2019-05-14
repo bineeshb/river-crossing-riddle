@@ -43,9 +43,7 @@ function init() {
   raft.init();
   animal.init();
 
-  document.querySelector(elSel.btnRestart).addEventListener('click', function () {
-    restartGame();
-  });
+  document.querySelector(elSel.btnRestart).addEventListener('click', restartGame);
 }
 
 (function () {

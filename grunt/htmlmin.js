@@ -1,11 +1,11 @@
 module.exports = {
-  dist: {
+  docs: {
     options: {
       removeComments: true,
       collapseWhitespace: true
     },
     files: {
-      'dist/index.html': 'src/index.html'
+      'docs/index.html': 'src/index.html'
     }
   }
 };

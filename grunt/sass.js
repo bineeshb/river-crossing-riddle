@@ -2,9 +2,9 @@ module.exports = {
   options: {
     implementation: require('node-sass')
   },
-  dist: {
+  docs: {
     files: {
-      'dist/styles.min.css': 'src/scss/styles.scss'
+      'docs/styles.min.css': 'src/scss/styles.scss'
     }
   }
 };
