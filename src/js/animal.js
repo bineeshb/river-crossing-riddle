@@ -11,7 +11,7 @@ var animal = {
   },
 
   addRemoveEvent: function () {
-    var elAnimal = this,
+    var elAnimal = this.parentElement,
         elParentContainer = elAnimal.parentElement.parentElement,
         isAnimalInFireZone = elParentContainer.classList.contains(elClass.fireZone),
         isAnimalInSafeZone = elParentContainer.classList.contains(elClass.safeZone),
