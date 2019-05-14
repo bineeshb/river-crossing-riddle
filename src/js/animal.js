@@ -44,10 +44,10 @@ var animal = {
     elAddRemoveBtn.setAttribute('tooltip', 'Add to Raft');
     elAddRemoveBtn.setAttribute('tooltip-remove', 'Remove from Raft');
     elAddRemoveBtn.append(elAddIcon, elRemoveIcon);
+    elAddRemoveBtn.addEventListener('click', this.addRemoveEvent);
 
     elAnimal.classList.add(elClass.animal, wrapperClass);
     elAnimal.append(document.createTextNode(text), elAddRemoveBtn);
-    elAnimal.addEventListener('click', this.addRemoveEvent);
 
     return elAnimal;
   }
